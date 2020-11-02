@@ -17,9 +17,6 @@ distances = {'Moscow to London': (((sites['Moscow'][0]-sites['London'][0])**2+(s
              'London to Paris': (((510-480)**2+(510-480)**2)**1/2),
              }
 
-# TODO здесь заполнение словаря
-print(sites['Moscow'][0])
-print(sites)
 print(distances)
 
 
