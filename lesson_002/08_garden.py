@@ -17,13 +17,13 @@ print(meadow_set)
 
 # выведите на консоль все виды цветов
 all_flowers = garden_set|meadow_set
-print(all_flowers)
+print('All flowers:',all_flowers)
 # выведите на консоль те, которые растут и там и там
 # TODO здесь ваш код
 
 # выведите на консоль те, которые растут в саду, но не растут на лугу
-# TODO здесь ваш код
-
+only_garden_flowers = garden_set - meadow_set
+print('Flowers that only grow in the garden: ',only_garden_flowers)
 # выведите на консоль те, которые растут на лугу, но не растут в саду
 # TODO здесь ваш код
 
