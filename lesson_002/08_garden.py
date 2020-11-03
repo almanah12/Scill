@@ -13,11 +13,11 @@ meadow = ('клевер', 'одуванчик', 'ромашка', 'клевер'
 garden_set = set(garden)
 print(garden_set)
 meadow_set =set(meadow)
-print(garden_set)
+print(meadow_set)
 
 # выведите на консоль все виды цветов
-# TODO здесь ваш код
-
+all_flowers = garden_set|meadow_set
+print(all_flowers)
 # выведите на консоль те, которые растут и там и там
 # TODO здесь ваш код
 
