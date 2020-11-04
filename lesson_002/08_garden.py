@@ -25,6 +25,7 @@ print('All flowers:',all_flowers)
 only_garden_flowers = garden_set - meadow_set
 print('Flowers that only grow in the garden: ',only_garden_flowers)
 # выведите на консоль те, которые растут на лугу, но не растут в саду
-# TODO здесь ваш код
+only_meadow_flowers =  meadow_set - garden_set
+print('Flowers that only grow in the meadow: ',only_meadow_flowers)
 
 
