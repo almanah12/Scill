@@ -10,5 +10,10 @@
 user_input = input("Введите, пожалуйста, номер месяца: ")
 month = int(user_input)
 print('Вы ввели', month)
-
+if month == 1:
+    print('В первом месяце 31 дней')
+elif month == 2:
+    print('В втором месяце 28 дней')
+else:
+    print('You entered error number')
 # TODO здесь ваш код
