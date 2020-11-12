@@ -10,4 +10,8 @@
 
 a, b = 179, 37
 
-# TODO здесь ваш код
+while a > b:
+    c = a / b
+    res_del = a - int(c)*b
+    print(res_del)
+    break
