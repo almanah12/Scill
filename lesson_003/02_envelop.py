@@ -21,13 +21,13 @@ paper_x, paper_y = 11, 9
 # (просто раскоментировать нужную строку и проверить свой код)
 one_side = envelop_x > paper_x or envelop_x > paper_y
 another_side = envelop_y > paper_x or envelop_y > paper_y
-# TODO здесь ваш код
+
 if one_side and another_side:
     print('Does the paper fit in the envelope: Yes')
 else:
     print('Does the paper fit in the envelope: no')
 
-# Усложненное задание, решать по желанию.
+#  задание, решать по желанию.
 # Заданы размеры hole_x, hole_y прямоугольного отверстия и размеры brick_х, brick_у, brick_z кирпича (все размеры
 # могут быть в диапазоне от 1 до 1000)
 #
