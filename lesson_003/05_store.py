@@ -48,6 +48,20 @@ store = {
 
 # TODO здесь ваш код
 
+for key, value in goods.items():
+    sum_tov = 0
+    amount = 0
+    for val in store:
+        size = len(store[val])
+        if val == value:
+            for i in range(size):
+                amount += store[val][i]['quantity']
+                sum_tov += store[val][i]['quantity'] * store[val][i]['price']
+            print(key, ':', 'amount -', amount, 'sum -', sum_tovarov)
+
+
+
+
 
 
 
