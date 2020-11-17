@@ -109,13 +109,13 @@ sd.resolution = [800, 800]
 
 def common_angles(start_poin, angle=0, length=100, side = 1):
     for i in range(side):
-        v2 = sd.get_vector(start_point=start_poin, angle= 360*(i/side) + angle, length=length)
-        v2 = v2.end_point
-        v2.draw()
+        vec_general = sd.get_vector(start_point=start_poin, angle= 360*(i/side) + angle, length=length)
+        start_poin = vec_general.end_point
+        vec_general.draw()
 
 
 point_common = sd.get_point(100, 100)
-common_angles(start_poin=point_common, angle=0, side=3)
+common_angles(start_poin=point_common, angle=15, side=4)
 
 
 # def pentagon(start_poin, angle=0, length=100):
