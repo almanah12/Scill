@@ -3,7 +3,11 @@
 import simple_draw as sd
 sd.resolution = [800, 800]
 
-def triangle(start_point, angle=0, length=100):
+def triangle(start_poin, angle=0, length=100):
+    v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
+    v1.draw()
+
+
 
 
 # Часть 1.
