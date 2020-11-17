@@ -20,7 +20,7 @@ color_choose = (sd.COLOR_RED, sd.COLOR_ORANGE, sd.COLOR_YELLOW, sd.COLOR_GREEN, 
 
 def more_squares(start_point_squares, angles=0, length=100, side =1, color=sd.COLOR_YELLOW):
     for i in range(side):
-        if i !=side-1:
+        if i != side-1:
             vec_squares = sd.get_vector(start_point=start_point_squares, angle=360*(i/side) + angles, length=length,)
             start_point_squares = vec_squares.end_point
             vec_squares.draw(color=color)
