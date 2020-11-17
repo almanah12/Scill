@@ -28,7 +28,8 @@ def sguare(start_poin, angle=0, length=100):
 
     v4 = sd.get_vector(start_point=v3.end_point, angle=270 + angle, length=length)
     v4.draw()
-point = sd.get_point(500, 100)
+point_square = sd.get_point(500, 100)
+sguare(start_poin=point_square, angle=0, length=100)
 
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
