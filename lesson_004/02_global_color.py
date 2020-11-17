@@ -15,6 +15,26 @@ while number_user < 10:
     else:
         break
 
+color_choose = (sd.COLOR_RED, sd.COLOR_ORANGE, sd.COLOR_YELLOW, sd.COLOR_GREEN, sd.COLOR_CYAN, sd.COLOR_BLUE, sd.COLOR_PURPLE )
+
+
+def more_squares(start_point_squares, angles=0, length=100, side =1, color=sd.COLOR_YELLOW):
+    for i in range(side):
+        if i !=side-1:
+            vec_squares = sd.get_vector(start_point=start_point_squares, angle=360*(i/side) + angles, length=length,)
+            start_point_squares = vec_squares.end_point
+            vec_squares.draw(color=color)
+        else:
+            sd.line(start_point=start_point_squares, end_point=point, color=color)
+
+
+point = sd.get_point(300, 300)
+side_number = 5
+color_line = color_choose[number_user]
+more_squares(start_point_squares=point, angles=10, length=200, side=side_number, color=color_line )
+
+
+
 
 # Добавить цвет в функции рисования геом. фигур. из упр lesson_004/01_shapes.py
 # (код функций скопировать сюда и изменить)
