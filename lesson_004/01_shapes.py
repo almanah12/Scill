@@ -47,6 +47,7 @@ def pentagon(start_poin, angle=0, length=100):
     v5 = sd.get_vector(start_point=v4.end_point, angle=288 + angle, length=length)
     v5.draw()
 point_pentagon = sd.get_point(50, 500)
+pentagon(start_poin=point_pentagon, angle=0)
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
