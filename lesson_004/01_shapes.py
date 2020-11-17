@@ -16,7 +16,7 @@ def triangle(start_poin, angle=0, length=100):
 point = sd.get_point(50, 50)
 triangle(start_poin=point, angle=0, length=200)
 
-def triangle(start_poin, angle=0, length=100):
+def sguare(start_poin, angle=0, length=100):
     v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
     v1.draw()
 
@@ -28,6 +28,8 @@ def triangle(start_poin, angle=0, length=100):
 
     v4 = sd.get_vector(start_point=v3.end_point, angle=270 + angle, length=length)
     v4.draw()
+point = sd.get_point(500, 100)
+
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
