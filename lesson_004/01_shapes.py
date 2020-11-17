@@ -2,9 +2,10 @@
 
 import simple_draw as sd
 sd.resolution = [800, 800]
+sd.s
 
-def triangle(start_poin, angle=0, length=100):
-    v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
+def triangle(angles_point, angle=0, length=100):
+    v1 = sd.get_vector(start_point=angles_point, angle=angle, length=length)
     v1.draw()
 
     v2 = sd.get_vector(start_point=v1.end_point, angle=120 + angle, length=length)
@@ -13,8 +14,10 @@ def triangle(start_poin, angle=0, length=100):
     v3 = sd.get_vector(start_point=v2.end_point, angle=240 + angle, length=length)
     v3.draw()
 
+
 point = sd.get_point(50, 50)
-triangle(start_poin=point, angle=0, length=200)
+triangle(angles_point=point, angle=0, length=200)
+
 
 def sguare(start_poin, angle=0, length=100):
     v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
@@ -28,8 +31,11 @@ def sguare(start_poin, angle=0, length=100):
 
     v4 = sd.get_vector(start_point=v3.end_point, angle=270 + angle, length=length)
     v4.draw()
+
+
 point_square = sd.get_point(500, 100)
 sguare(start_poin=point_square, angle=0, length=100)
+
 
 def pentagon(start_poin, angle=0, length=100):
     v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
@@ -66,10 +72,12 @@ def hexagon(start_poin, angle=0, length=100):
     v5 = sd.get_vector(start_point=v4.end_point, angle=240 + angle, length=length)
     v5.draw()
 
-    v6 = sd.get_vector(start_point=v5.end_point, angle=320 + angle, length=length)
+    v6 = sd.get_vector(start_point=v5.end_point, angle=301 + angle, length=length)
     v6.draw()
 
+
 point_hexagon = sd.get_point(500, 500)
+hexagon(start_poin=point_hexagon, angle=0, length=100)
 
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
