@@ -7,10 +7,14 @@ def triangle(start_poin, angle=0, length=100):
     v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
+    v2 = sd.get_vector(start_point=start_poin, angle=120 + angle, length=length)
     v2.draw()
 
+    v3 = sd.get_vector(start_point=start_poin, angle=240 + angle, length=length)
+    v3.draw()
 
+point = sd.get_point(50, 50)
+triangle(start_poin=point, an)
 
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
