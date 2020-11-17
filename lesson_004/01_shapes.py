@@ -68,6 +68,9 @@ def hexagon(start_poin, angle=0, length=100):
 
     v6 = sd.get_vector(start_point=v5.end_point, angle=320 + angle, length=length)
     v6.draw()
+
+point_hexagon = sd.get_point(500, 500)
+
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
