@@ -105,21 +105,21 @@ sd.resolution = [800, 800]
 # sd.line()
 # Результат решения см lesson_004/results/exercise_01_shapes.jpg
 
-# TODO здесь ваш код
 
-def common_angles(start_poin, angle=0, length=100, side = 1):
+def common_angles(start_poin, angle=0, length=100, side=1):
     for i in range(side):
-        if i != side -1:
+        if i != side - 1:
             vec_general = sd.get_vector(start_point=start_poin, angle= 360*(i/side) + angle, length=length)
             start_poin = vec_general.end_point
             vec_general.draw()
         else:
-            vec_general = sd.get_vector(start_point=start_poin, angle= 360*(i/side) +angle + 0.8, length= length -1)
-            vec_general.draw()
+            sd.line(start_point=start_poin, end_point=point_common)
+
 
 
 point_common = sd.get_point(300, 300)
-common_angles(start_poin=point_common, angle=15, length=300, side=5)
+side_angles = 5
+common_angles(start_poin=point_common, angle=15, length=300, side=side_angles)
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
