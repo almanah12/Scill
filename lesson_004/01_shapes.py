@@ -35,16 +35,16 @@ def pentagon(start_poin, angle=0, length=100):
     v1 = sd.get_vector(start_point=start_poin, angle=angle, length=length)
     v1.draw()
 
-    v2 = sd.get_vector(start_point=v1.end_point, angle=90 + angle, length=length)
+    v2 = sd.get_vector(start_point=v1.end_point, angle=72 + angle, length=length)
     v2.draw()
 
-    v3 = sd.get_vector(start_point=v2.end_point, angle=180 + angle, length=length)
+    v3 = sd.get_vector(start_point=v2.end_point, angle=144 + angle, length=length)
     v3.draw()
 
-    v4 = sd.get_vector(start_point=v3.end_point, angle=270 + angle, length=length)
+    v4 = sd.get_vector(start_point=v3.end_point, angle=216 + angle, length=length)
     v4.draw()
 
-    v5 = sd.get_vector(start_point=v3.end_point, angle=270 + angle, length=length)
+    v5 = sd.get_vector(start_point=v4.end_point, angle=288 + angle, length=length)
     v5.draw()
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
