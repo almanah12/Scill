@@ -2,6 +2,10 @@
 
 import simple_draw as sd
 sd.resolution = [800, 800]
+
+def triangle(start_point, angle=0, length=100):
+
+
 # Часть 1.
 # Написать функции рисования равносторонних геометрических фигур:
 # - треугольника
