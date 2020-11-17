@@ -116,7 +116,6 @@ def common_angles(start_poin, angle=0, length=100, side=1):
             sd.line(start_point=start_poin, end_point=point_common)
 
 
-
 point_common = sd.get_point(300, 300)
 side_angles = 5
 common_angles(start_poin=point_common, angle=15, length=300, side=side_angles)
