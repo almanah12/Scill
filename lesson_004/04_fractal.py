@@ -28,8 +28,6 @@ def draw_bunches(start_point, angle1, angle2, angle3, length,):
 
 root_point = sd.get_point(300, 30)
 draw_bunches(start_point=root_point, angle1=90, angle2=120, angle3=60, length=100, )
-# for delta in range(-50, -1, 10):
-#     draw_bunches(start_point=root_point, angle1=90, length=100, delta=delta)
 
 # 1) Написать функцию draw_branches, которая должна рисовать две ветви дерева из начальной точки
 # Функция должна принимать параметры:
