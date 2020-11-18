@@ -1,11 +1,35 @@
 # -*- coding: utf-8 -*-
 
 import simple_draw as sd
+sd.resolution = [800, 800]
 
 
-def branch(point, angle, length, ):
-    v1 = sd.get_vector(start_point=point, angle=angle, length=length)
-    v1.draw
+def draw_bunches(start_point, angle1, angle2, angle3, length,):
+    if length < 5:
+        return
+    v1 = sd.get_vector(start_point=start_point, angle=angle1, length=length,)
+    v1.draw()
+    v2 = sd.get_vector(start_point=v1.end_point, angle=angle2, length=length*.75,)
+    v2.draw()
+    v3 = sd.get_vector(start_point=v1.end_point, angle=angle3, length=length*.75,)
+    v3.draw()
+    next_point = v1.end_point
+    next_angle1 = angle1 - 30
+    next_angle2 = angle2 - 30
+    next_angle3 = angle3 - 30
+    next_length = length*.75
+    draw_bunches(start_point=next_point, angle1=next_angle1, angle2=next_angle2, angle3=next_angle3, length=next_length,)
+    next_angle1 = angle1 + 30
+    next_angle2 = angle2 + 30
+    next_angle3 = angle3 + 30
+    next_length = length*.75
+    draw_bunches(start_point=next_point, angle1=next_angle1, angle2=next_angle2, angle3=next_angle3, length=next_length,)
+
+
+root_point = sd.get_point(300, 30)
+draw_bunches(start_point=root_point, angle1=90, angle2=120, angle3=60, length=100, )
+# for delta in range(-50, -1, 10):
+#     draw_bunches(start_point=root_point, angle1=90, length=100, delta=delta)
 
 # 1) Написать функцию draw_branches, которая должна рисовать две ветви дерева из начальной точки
 # Функция должна принимать параметры:
@@ -39,7 +63,7 @@ def branch(point, angle, length, ):
 # Возможный результат решения см lesson_004/results/exercise_04_fractal_02.jpg
 
 # Пригодятся функции
-# sd.random_number()
+sd.random_number()
 
 sd.pause()
 
