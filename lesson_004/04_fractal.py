@@ -36,11 +36,11 @@ def draw_bunches(start_point, angle1, length,):
     v1.draw()
 
     next_point = v1.end_point
-    next_angle1 = angle1 - 30
+    next_angle1 = angle1 - sd.random_number(30-30*.4, 30+30*.4)
     next_length = length*.75
     draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,)
     next_point = v1.end_point
-    next_angle1 = angle1 + 30
+    next_angle1 = angle1 + sd.random_number(30-30*.4, 30+30*.4)
     next_length = length*.75
     draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,)
 
