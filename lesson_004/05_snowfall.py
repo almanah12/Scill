@@ -17,15 +17,18 @@ N = 20
 # sd.random_number()
 # sd.user_want_exit()
 
-# TODO здесь ваш код
-while True:
-    sd.clear_screen()
-    pass
-    pass
-    pass
-    sd.sleep(0.1)
-    if sd.user_want_exit():
-        break
+
+center = sd.get_point(300, 300)
+sd.snowflake(center=center,)
+
+# while True:
+    # sd.clear_screen()
+    # pass
+    # pass
+    # pass
+    # sd.sleep(0.1)
+    # if sd.user_want_exit():
+    #     break
 
 sd.pause()
 
