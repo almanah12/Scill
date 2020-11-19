@@ -17,10 +17,12 @@ def rainbow(point, step):
 
 poi = sd.get_point(50, 50)
 rainbow(point=poi, step=10)
-
+sd.resolution = (1200, 600)
+star_pos = sd.get_point(50, 50)
+end_pos = sd.get_point(350, 450)
+sd.circle(star_pos, 180, rainbow_colors[1])
 # Усложненное задание, делать по желанию.
 # Нарисовать радугу дугами от окружности (cсм sd.circle) за нижним краем экрана,
 # поэкспериментировать с параметрами, что бы было красиво
 # TODO здесь ваш код
-
 sd.pause()

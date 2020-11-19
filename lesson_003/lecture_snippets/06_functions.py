@@ -9,7 +9,6 @@
 def some_func():
     print('Привет! Я функция')
 
-
 some_func()
 
 my_list = [3, 14, 15, 92, 6]
