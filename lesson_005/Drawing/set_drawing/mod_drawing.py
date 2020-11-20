@@ -8,17 +8,23 @@ rainbow_colors = (simple_draw.COLOR_RED, simple_draw.COLOR_ORANGE, simple_draw.C
 
 
 def add_wall():
+    #simple_draw._to_screen_rect(simple_draw.get_point(200, 50), simple_draw.get_point(500, 290))
     left_x, left_y = 200, 50
     length_brick, hight_brick = 60, 30
     right_x = left_x + length_brick
     right_y = left_y + hight_brick
-
-    for k in range(8):
-        for i in range(5):
+    row = 5
+    column = 8
+    for k in range(column):
+        for i in range(row):
             if k%2 == 0:
                 simple_draw.rectangle(simple_draw.get_point(left_x + i*length_brick, left_y + k*hight_brick), simple_draw.get_point(right_x + i*length_brick, right_y + k*hight_brick), width=1)
-            # elif k%2 != 0:
-            #     simple_draw.rectangle(simple_draw.get_point(-50 + i*100, k*50), simple_draw.get_point(50 + i*100, 50 + k*50), width=1)
+            elif k%2 != 0:
+                if i == 0 or i == row - 1:
+                    simple_draw.rectangle(simple_draw.get_point(left_x + i*length_brick, left_y + k*hight_brick), simple_draw.get_point(right_x + i*length_brick, right_y + k*hight_brick), width=1)
+                else:
+                    simple_draw.rectangle(simple_draw.get_point((left_x - length_brick/2) + i*length_brick, left_y + k*hight_brick), simple_draw.get_point((left_x + length_brick/2) + i*length_brick, right_y + k*hight_brick), width=1)
+
     simple_draw.pause()
 
 
