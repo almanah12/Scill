@@ -2,7 +2,7 @@ import simple_draw
 
 # Нарисовать стену из кирпичей. Размер кирпича - 100х50
 # Использовать вложенные циклы for
-simple_draw.resolution = [1200, 700]
+simple_draw.resolution = [1100, 700]
 
 
 def add_wall():
