@@ -34,9 +34,9 @@ def call_rainbow():
 
 def call_test():
     simple_draw.rectangle(simple_draw.get_point(50, 50), simple_draw.get_point(120, 100))
-    simple_draw.pause()
+    simple_draw.finish_drawing()
 
 
 def call_ground():
-    simple_draw.rectangle(right_top=simple_draw.get_point(0, 0), left_bottom=simple_draw.get_point(1200, 50), color=simple_draw.COLOR_GREEN, width=0)
-    simple_draw.pause()
+    simple_draw.rectangle(left_bottom=simple_draw.get_point(0, 0), right_top=simple_draw.get_point(1200, 50), color=simple_draw.COLOR_GREEN, width=0)
+    simple_draw.finish_drawing()
