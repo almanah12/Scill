@@ -26,7 +26,7 @@ mod_drawing.call_rainbow()
 mod_drawing.add_wall()
 
 root_point = simple_draw.get_point(300, 30)
-mod_drawing.draw_bunches(start_point=root_point, angle1=90, length=100, count_color_tree=5)
+mod_drawing.draw_tree(start_point=root_point, angle1=90, length=100, count_color_tree=5)
 
 
 # Усложненное задание (делать по желанию)
