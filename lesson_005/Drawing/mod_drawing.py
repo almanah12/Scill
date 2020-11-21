@@ -59,7 +59,7 @@ def call_ground():
     simple_draw.finish_drawing()
 
 
-def draw_bunches(start_point, angle1, length, count_color_tree):
+def draw_tree(start_point, angle1, length, count_color_tree):
     if length < 5:
         return
     if count_color_tree < 5:
@@ -75,11 +75,11 @@ def draw_bunches(start_point, angle1, length, count_color_tree):
     next_point = v1.end_point
     next_angle1 = angle1 - simple_draw.random_number(30-30*.4, 30+30*.4)
     next_length = length*random.uniform(.75 - .75*.2, .75 + .75*.2)
-    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
+    draw_tree(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
     next_point = v1.end_point
     next_angle1 = angle1 + simple_draw.random_number(30-30*.4, 30+30*.4)
     next_length = length*random.uniform(.75 - .75*.2, .75 + .75*.2)
-    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
+    draw_tree(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
 
     simple_draw.finish_drawing()
 

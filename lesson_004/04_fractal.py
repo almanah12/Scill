@@ -30,31 +30,31 @@ sd.resolution = [800, 800]
 # root_point = sd.get_point(300, 30)
 # draw_bunches(start_point=root_point, angle1=90, angle2=120, angle3=60, length=100, )
 
-def draw_bunches(start_point, angle1, length,):
-    count_color_tree = 0
+def draw_bunches(start_point, angle1, length, count_color_tree):
     if length < 5:
         return
-    if count_color_tree < 3:
+    if count_color_tree < 5:
         v1 = sd.get_vector(start_point=start_point, angle=angle1, length=length)
-        v1.draw(color=sd.COLOR_PURPLE, width=1)
+        v1.draw(color=sd.COLOR_PURPLE, width=2)
         v1.draw()
     else:
         v1 = sd.get_vector(start_point=start_point, angle=angle1, length=length)
-        v1.draw(color=sd.COLOR_GREEN, width=1)
+        v1.draw(color=sd.COLOR_GREEN, width=2)
         v1.draw()
-    count_color_tree += 1
+
+    next_count_color_tree = count_color_tree + 1
     next_point = v1.end_point
     next_angle1 = angle1 - sd.random_number(30-30*.4, 30+30*.4)
     next_length = length*random.uniform(.75 - .75*.2, .75 + .75*.2)
-    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,)
+    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
     next_point = v1.end_point
     next_angle1 = angle1 + sd.random_number(30-30*.4, 30+30*.4)
     next_length = length*random.uniform(.75 - .75*.2, .75 + .75*.2)
-    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,)
+    draw_bunches(start_point=next_point, angle1=next_angle1, length=next_length,count_color_tree=next_count_color_tree)
 
 
 root_point = sd.get_point(300, 30)
-draw_bunches(start_point=root_point, angle1=90, length=100, )
+draw_bunches(start_point=root_point, angle1=90, length=100, count_color_tree=0)
 
 
 
