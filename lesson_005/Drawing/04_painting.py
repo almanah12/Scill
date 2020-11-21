@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import mod_drawing
+import simple_draw
 
 #import mod_rainbows
 # Создать пакет, в который скопировать функции отрисовки из предыдущего урока
@@ -23,6 +24,9 @@ import mod_drawing
 mod_drawing.call_ground()
 mod_drawing.call_rainbow()
 mod_drawing.add_wall()
+
+root_point = simple_draw.get_point(300, 30)
+mod_drawing.draw_bunches(start_point=root_point, angle1=90, length=100, count_color_tree=5)
 
 
 # Усложненное задание (делать по желанию)
