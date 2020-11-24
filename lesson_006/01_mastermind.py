@@ -44,11 +44,10 @@
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
 from mastermind_engine import quess_number_func, check_number
-enter_number = input('Input the number:')
 
 quess_number_func()
 
-check_number(num=enter_number)
+check_number()
 
 
 
