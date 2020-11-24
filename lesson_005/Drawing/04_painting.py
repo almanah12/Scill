@@ -23,10 +23,23 @@ import simple_draw
 
 mod_drawing.call_ground()
 mod_drawing.call_rainbow()
+
+root_point = simple_draw.get_point(1000, 100)
+mod_drawing.draw_tree(start_point=root_point, angle1=90, length=70, count_color_tree=0)
+
+root_point = simple_draw.get_point(700, 400)
+mod_drawing.draw_tree(start_point=root_point, angle1=90, length=20, count_color_tree=0)
+
+smailik_point = simple_draw.get_point(700, 300)
+mod_drawing.smailik(point=smailik_point, radius=40)
+
+
+
+
+
 mod_drawing.add_wall()
 
-root_point = simple_draw.get_point(300, 30)
-mod_drawing.draw_tree(start_point=root_point, angle1=90, length=100, count_color_tree=5)
+
 
 
 # Усложненное задание (делать по желанию)

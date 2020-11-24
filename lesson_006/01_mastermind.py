@@ -43,7 +43,7 @@
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
-from mastermind_engine import quess_number_func, check_number, _quess_number
+from mastermind_engine import quess_number_func, check_number
 
 quess_number_func()
 
