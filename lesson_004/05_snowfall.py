@@ -10,7 +10,7 @@ sd.resolution = (1200, 700)
 # - нарисовать падение этих N снежинок
 # - создать список рандомных длинн лучей снежинок (от 10 до 100) и пусть все снежинки будут разные
 
-N = 20
+N = 3
 
 # Пригодятся функции
 # sd.get_point()
@@ -18,30 +18,41 @@ N = 20
 # sd.sleep()
 # sd.random_number()
 # sd.user_want_exit()
-point_x = []
+point_x = [100, 250, 400]
+# for i in range(N):
+#     point_x.append(sd.random_number(50, 1000))
+
+
+point_y = [600, 550, 610]
+# for i in range(N):
+#     point_y.append(sd.random_number(550, 600))
+
+length_snowflakes = []
 for i in range(N):
-    point_x.append(sd.random_number(50, 1000))
+    length_snowflakes.append(sd.random_number(50, 100))
 
-
-point_y = []
+step_falloff_snowflakes = []
 for i in range(N):
-    point_y.append(sd.random_number(550, 600))
-
+    step_falloff_snowflakes.append(sd.random_number(10, 50))
+count = 0
 while True:
-    sd.clear_screen()
+    sd.start_drawing()
     for i in range(N):
-        #sd.start_drawing()
         center = sd.get_point(point_x[i], point_y[i])
-        sd.snowflake(center=center, length=sd.random_number(10, 100), factor_a=random.uniform(.5, .6), factor_b=random.uniform(.3, .4), factor_c=sd.random_number(25, 35))
-        point_y[i] -= 50
-        #sd.snowflake(center=center, length=sd.random_number(10, 100), color=sd.COLOR_WHITE, factor_a=random.uniform(.5, .6), factor_b=random.uniform(.3, .4), factor_c=sd.random_number(25, 35))
+        sd.snowflake(center=center, length=length_snowflakes[i], color=sd.background_color)
+        shifted_snowflake = point_y[i] - step_falloff_snowflakes[i]
 
+        shifted_point = sd.get_point(point_x[i], shifted_snowflake)
+        sd.snowflake(center=shifted_point, length=length_snowflakes[i], color=sd.COLOR_WHITE)
+        point_y[i] -= step_falloff_snowflakes[i]
         if point_y[i] < 50:
-            break
-        # sd.finish_drawing()
-    sd.sleep(0.1)
+            point_y[i] = 500
+
+    sd.finish_drawing()
+
+    sd.sleep(0.5)
     if sd.user_want_exit():
-         break
+        break
 
 sd.pause()
 
