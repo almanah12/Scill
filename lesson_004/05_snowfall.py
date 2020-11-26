@@ -30,14 +30,18 @@ for i in range(N):
 while True:
     sd.clear_screen()
     for i in range(N):
+        #sd.start_drawing()
         center = sd.get_point(point_x[i], point_y[i])
         sd.snowflake(center=center, length=sd.random_number(10, 100), factor_a=random.uniform(.5, .6), factor_b=random.uniform(.3, .4), factor_c=sd.random_number(25, 35))
         point_y[i] -= 50
-        if  point_y[i]<50:
+        #sd.snowflake(center=center, length=sd.random_number(10, 100), color=sd.COLOR_WHITE, factor_a=random.uniform(.5, .6), factor_b=random.uniform(.3, .4), factor_c=sd.random_number(25, 35))
+
+        if point_y[i] < 50:
             break
-        sd.sleep(0.1)
-        if sd.user_want_exit():
-            break
+        # sd.finish_drawing()
+    sd.sleep(0.1)
+    if sd.user_want_exit():
+         break
 
 sd.pause()
 

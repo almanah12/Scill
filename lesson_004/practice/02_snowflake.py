@@ -8,28 +8,57 @@ sd.resolution = (1200, 600)
 # sd.snowflake(center=point_0, length=200, factor_a=0.5)
 
 # реализовать падение одной снежинки
-y = 500
-x = 100
-
+point_x = [100, 150, 200]
+point_y = [500, 450, 500]
+# y = 500
+# x = 100
+#
 y2 = 450
 x2 = 150
-while True:
-    sd.clear_screen()
-    point = sd.get_point(x, y)
-    sd.snowflake(center=point, length=50)
-    y -= 10
-    if y < 50:
-       break
-    x = x + 10
 
+x3 = 200
+y3 = 500
+while True:
+    sd.start_drawing()
     point2 = sd.get_point(x2, y2)
-    sd.snowflake(center=point2, length=30)
+    sd.snowflake(center=point2, length=30,)
+    sd.finish_drawing()
+
+
+    sd.start_drawing()
+    point2 = sd.get_point(x2, y2)
+    sd.snowflake(center=point2, length=30, color=sd.background_color)
+    sd.finish_drawing()
+    sd.sleep(.1)
+
+    # for i in range(3):
+    #     sd.start_drawing()
+    #     point = sd.get_point(point_x[i], point_y[i])
+    #     sd.snowflake(center=point,)
+    #     sd.finish_drawing()
+    #
+    #     sd.start_drawing()
+    #     sd.snowflake(center=point, length=50, color=sd.background_color)
+    #     sd.finish_drawing()
+    #     point_y[i] -= 10
+    #     if point_y[i] < 50:
+    #         break
+
     y2 -= 10
     if y2 < 50:
-       break
-    x2 = x2 + 20
+        break
 
-    sd.sleep(0.1)
+
+    # sd.finish_drawing()
+    # sd.start_drawing()
+    # point3 = sd.get_point(x3, y3)
+    # sd.snowflake(center=point3, length=150, color=sd.background_color)
+    # sd.snowflake(center=point3, length=150)
+    # y3 -= 20
+    # if y3 < 50:
+    #     break
+
+    sd.sleep(.1)
     if sd.user_want_exit():
         break
 
