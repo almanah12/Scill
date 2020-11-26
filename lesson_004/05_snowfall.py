@@ -34,19 +34,29 @@ for i in range(N):
 step_falloff_snowflakes = []
 for i in range(N):
     step_falloff_snowflakes.append(sd.random_number(10, 50))
-count = 0
+
+# Для рандомные отклонения вправо/влево при каждом шаге
+# step_falloff_snowflakes_x = []
+# for i in range(N):
+#     step_falloff_snowflakes_x.append(sd.random_number(-20, 20))
+
 while True:
     sd.start_drawing()
     for i in range(N):
         center = sd.get_point(point_x[i], point_y[i])
+        #  - на старом месте снежинки отрисовать её же, но цветом sd.background_color
         sd.snowflake(center=center, length=length_snowflakes[i], color=sd.background_color)
-        shifted_snowflake = point_y[i] - step_falloff_snowflakes[i]
-
-        shifted_point = sd.get_point(point_x[i], shifted_snowflake)
+        #  - сдвинуть снежинку
+        shifted_snowflake_y = point_y[i] - step_falloff_snowflakes[i]
+        shifted_point = sd.get_point(point_x[i], shifted_snowflake_y)
+        #  - отрисовать её цветом sd.COLOR_WHITE на новом месте
         sd.snowflake(center=shifted_point, length=length_snowflakes[i], color=sd.COLOR_WHITE)
+        #  Для сохр след. итерации
         point_y[i] -= step_falloff_snowflakes[i]
-        if point_y[i] < 50:
-            point_y[i] = 500
+        #  Проверка достиг ли дна экрана
+        if point_y[i] < sd.random_number(40, 60):
+            point_y[i] = 550
+            length_snowflakes[i] = sd.random_number(10, 40)
 
     sd.finish_drawing()
 
