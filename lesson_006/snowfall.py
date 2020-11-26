@@ -12,6 +12,8 @@ while True:
     #       удалить_снежинки(номера)
     #       создать_снежинки(count)
     snowfall_module.create_snow(10)
+    snowfall_module.draw_snow_color(sd.background_color)
+    snowfall_module.move_snowflakes()
     #snowfall_module.draw_snow_color(color=sd.background_color)
 
 
