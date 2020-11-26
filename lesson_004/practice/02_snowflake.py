@@ -21,13 +21,12 @@ y3 = 500
 while True:
     sd.start_drawing()
     point2 = sd.get_point(x2, y2)
-    sd.snowflake(center=point2, length=30,)
-    sd.finish_drawing()
-
-
-    sd.start_drawing()
-    point2 = sd.get_point(x2, y2)
     sd.snowflake(center=point2, length=30, color=sd.background_color)
+    yx = y2 - 10
+    if yx < 50:
+        break
+    point2x = sd.get_point(x2, yx)
+    sd.snowflake(center=point2x, length=30,)
     sd.finish_drawing()
     sd.sleep(.1)
 
