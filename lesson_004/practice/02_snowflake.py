@@ -28,34 +28,22 @@ while True:
     point2x = sd.get_point(x2, yx)
     sd.snowflake(center=point2x, length=30,)
     sd.finish_drawing()
-    sd.sleep(.1)
-
-    # for i in range(3):
-    #     sd.start_drawing()
-    #     point = sd.get_point(point_x[i], point_y[i])
-    #     sd.snowflake(center=point,)
-    #     sd.finish_drawing()
-    #
-    #     sd.start_drawing()
-    #     sd.snowflake(center=point, length=50, color=sd.background_color)
-    #     sd.finish_drawing()
-    #     point_y[i] -= 10
-    #     if point_y[i] < 50:
-    #         break
 
     y2 -= 10
     if y2 < 50:
         break
-
-
-    # sd.finish_drawing()
-    # sd.start_drawing()
-    # point3 = sd.get_point(x3, y3)
-    # sd.snowflake(center=point3, length=150, color=sd.background_color)
-    # sd.snowflake(center=point3, length=150)
-    # y3 -= 20
-    # if y3 < 50:
-    #     break
+    # for i in range(3):
+    #     sd.start_drawing()
+    #     point = sd.get_point(point_x[i], point_y[i])
+    #     sd.snowflake(center=point, length=50, color=sd.background_color,)
+    #
+    #     shifted_snowflake = point_y[i] - 10
+    #     if point_y[i] < 50:
+    #         break
+    #
+    #     shifted_point = sd.get_point(point_x[i], shifted_snowflake)
+    #     sd.snowflake(center=shifted_point,)
+    #     sd.finish_drawing()
 
     sd.sleep(.1)
     if sd.user_want_exit():
