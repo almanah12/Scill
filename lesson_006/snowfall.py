@@ -11,13 +11,16 @@ while True:
     #  если есть номера_достигших_низа_экрана() то
     #       удалить_снежинки(номера)
     #       создать_снежинки(count)
-    snowfall_module.create_snow(10)
-    snowfall_module.draw_snow_color(sd.background_color)
-    snowfall_module.move_snowflakes()
-    #snowfall_module.draw_snow_color(color=sd.background_color)
+    snowfall_module.create_snow(3)
+    while True:
+        snowfall_module.draw_snow_color(sd.background_color)
+        snowfall_module.move_snowflakes()
+        snowfall_module.draw_snow_color(sd.COLOR_YELLOW)
 
+        sd.sleep(.5)
+        if sd.user_want_exit():
+            break
 
-    sd.sleep(0.1)
     if sd.user_want_exit():
         break
 

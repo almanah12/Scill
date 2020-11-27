@@ -19,11 +19,12 @@ _point_y = []
 
 
 def create_snow(N):
-    global _point_x
+    # глобальное переменное для доступа на всех функциях
+    global _point_x, _point_y
+
     for i in range(N):
         _point_x.append(sd.random_number(50, 1000))
 
-    point_y = []
     for i in range(N):
         _point_y.append(sd.random_number(550, 600))
 
@@ -35,20 +36,15 @@ def draw_snow_color(color):
         #  - на старом месте снежинки отрисовать её же, но цветом sd.background_color
         sd.snowflake(center=center, length=50, color=color)
 
-        # #  - отрисовать её цветом sd.COLOR_WHITE на новом месте
-        # sd.snowflake(center=shifted_point, length=length_snowflakes[i], color=sd.COLOR_WHITE)
-        # #  Для сохр след. итерации
-        # point_y[i] -= step_falloff_snowflakes[i]
-
     sd.finish_drawing()
 
 
 def move_snowflakes():
     #  - сдвинуть снежинку
     for i in range(len(_point_x)):
-        shifted_snowflake_y = _point_y[i] - 20
-        shifted_point = sd.get_point(_point_x[i], shifted_snowflake_y)
-        sd.snowflake(center=shifted_point, length=50, color=sd.COLOR_WHITE)
+        _point_y[i] = _point_y[i] - 20
+        #shifted_point = sd.get_point(_point_x[i], shifted_snowflake_y)
+        #sd.snowflake(center=shifted_point, length=150, color=sd.COLOR_WHITE)
 
 
 def screen_numbers_reached_down():
