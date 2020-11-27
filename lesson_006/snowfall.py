@@ -16,6 +16,10 @@ while True:
         snowfall_module.draw_snow_color(sd.background_color)
         snowfall_module.move_snowflakes()
         snowfall_module.draw_snow_color(sd.COLOR_YELLOW)
+        if snowfall_module.screen_numbers_reached_down():
+            snowfall_module.delete_snowflakes(snowfall_module.screen_numbers_reached_down())
+            snowfall_module.create_snow(1)
+
 
         sd.sleep(.5)
         if sd.user_want_exit():
