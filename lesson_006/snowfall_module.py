@@ -50,11 +50,10 @@ def move_snowflakes():
         shifted_point = sd.get_point(_point_x[i], shifted_snowflake_y)
         sd.snowflake(center=shifted_point, length=50, color=sd.COLOR_WHITE)
 
+
 def screen_numbers_reached_down():
     pass
 
 
 def delete_snowflakes(numbers):
     pass
-
-
