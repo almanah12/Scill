@@ -43,8 +43,7 @@ def move_snowflakes():
     #  - сдвинуть снежинку
     for i in range(len(_point_x)):
         _point_y[i] = _point_y[i] - 20
-        #shifted_point = sd.get_point(_point_x[i], shifted_snowflake_y)
-        #sd.snowflake(center=shifted_point, length=150, color=sd.COLOR_WHITE)
+
 
 
 def screen_numbers_reached_down():
