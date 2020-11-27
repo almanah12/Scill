@@ -2,7 +2,7 @@ import simple_draw as sd
 import snowfall_module
 
 sd.resolution = (1200, 700)
-
+n = 3
 
 while True:
     #  нарисовать_снежинки_цветом(color=sd.background_color)
@@ -11,7 +11,7 @@ while True:
     #  если есть номера_достигших_низа_экрана() то
     #       удалить_снежинки(номера)
     #       создать_снежинки(count)
-    snowfall_module.create_snow(3)
+    snowfall_module.create_snow(n)
     while True:
         snowfall_module.draw_snow_color(sd.background_color)
         snowfall_module.move_snowflakes()

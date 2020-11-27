@@ -17,7 +17,7 @@ import random
 _point_x = []
 _point_y = []
 
-count = 0
+_count = []
 
 def create_snow(N):
     # глобальное переменное для доступа на всех функциях
@@ -43,24 +43,24 @@ def draw_snow_color(color):
 def move_snowflakes():
     # - сдвинуть снежинку
     for i in range(len(_point_x)):
-        _point_y[i] = _point_y[i] - sd.random_number(100, 200)
+        _point_y[i] = _point_y[i] - sd.random_number(10, 20)
 
 
 def screen_numbers_reached_down():
-    global count
+    global _count
     for i in range(len(_point_x)):
         if _point_y[i] < sd.random_number(40, 60):
-            count = i
-
-
-    return count
+            _count.append(i)
+    print(_count)
+    return _count
 
 
 def delete_snowflakes(count):
-    center = sd.get_point(_point_x[count], _point_y[count])
-    sd.start_drawing()
-    sd.snowflake(center=center, length=50, color=sd.background_color)
-    sd.finish_drawing()
+    for i in range(len(count)):
+        center = sd.get_point(_point_x[count[i]], _point_y[count[i]])
+        sd.start_drawing()
+        sd.snowflake(center=center, length=50, color=sd.background_color)
+        sd.finish_drawing()
 
-    del _point_x[count]
-    del  _point_y[count]
+        del _point_x[count[i]]
+        del _point_y[count[i]]
