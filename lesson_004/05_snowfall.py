@@ -33,7 +33,7 @@ for i in range(N):
 
 step_falloff_snowflakes = []
 for i in range(N):
-    step_falloff_snowflakes.append(sd.random_number(10, 50))
+    step_falloff_snowflakes.append(sd.random_number(100, 150))
 
 # Для рандомные отклонения вправо/влево при каждом шаге
 # step_falloff_snowflakes_x = []
@@ -55,8 +55,11 @@ while True:
         point_y[i] -= step_falloff_snowflakes[i]
         #  Проверка достиг ли дна экрана
         if point_y[i] < sd.random_number(40, 60):
+            center = sd.get_point(point_x[i], point_y[i])
+            sd.snowflake(center=center, length=length_snowflakes[i], color=sd.background_color)
             point_y[i] = 550
             length_snowflakes[i] = sd.random_number(10, 40)
+
 
     sd.finish_drawing()
 
