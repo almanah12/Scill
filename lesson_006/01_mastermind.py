@@ -45,9 +45,7 @@
 
 from mastermind_engine import quess_number_func, check_number
 
-quess_number_func()
 
-check_number()
 
 #test345454545345
 
