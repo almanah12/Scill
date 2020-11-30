@@ -19,6 +19,7 @@ _point_y = []
 
 _count = []
 
+
 def create_snow(N):
     # глобальное переменное для доступа на всех функциях
     global _point_x, _point_y

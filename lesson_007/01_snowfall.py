@@ -9,9 +9,24 @@ import simple_draw as sd
 
 
 class Snowflake:
-    pass
+    def __init__(self):
+        self._count = []
+        self.x = sd.random_number(100, 900)
+        self.y = sd.random_number(550, 570)
+        self.length = sd.random_number(30, 70)
 
-    # TODO здесь ваш код
+    def clear_previous_picture(self):
+        sd.clear_screen()
+
+    def draw(self):
+        center = sd.get_point(self.x, self.y)
+        sd.snowflake(center=center, length=self.length,)
+
+    def move(self):
+        self.y -= 50
+
+    def can_fall(self):
+        return self.y >= 50
 
 
 flake = Snowflake()
