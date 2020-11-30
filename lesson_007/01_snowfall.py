@@ -7,7 +7,10 @@ import simple_draw as sd
 #  - отработку изменений координат
 #  - отрисовку
 sd.resolution = [1000, 600]
-N = 2
+N = 10
+_count = []
+list_flakes = []
+
 
 class Snowflake:
     def __init__(self):
@@ -20,10 +23,10 @@ class Snowflake:
 
     def draw(self):
         center = sd.get_point(self.x, self.y)
-        sd.snowflake(center=center, length=self.length,)
+        sd.snowflake(center=center, length=self.length, color=sd.random_color() )
 
     def move(self):
-        self.y -= 50
+        self.y -= sd.random_number(50, 150)
 
     def can_fall(self):
         return self.y >= 300
@@ -42,27 +45,25 @@ flake = Snowflake()
 #         break
 
 # шаг 2: создать снегопад - список объектов Снежинка в отдельном списке, обработку примерно так:
-count = 0
-list_flakes = []
-def get_flakes(count):
 
+
+def get_flakes(count):
     for i in range(count):
         list_flakes.append(Snowflake())
     return list_flakes
 
 
 def get_fallen_flakes():
-    global count
-
-    if flake.y <= 50:
-        count += 1
-        if flake.y >= 50:
-            count = 0
-    return count
+    global _count
+    _count = []
+    for i in range(N):
+        if list_flakes[i].y <= 50:
+            _count.append(i)
+    return _count
 
 
 def append_flakes(count):
-    for i in range(count):
+    for _ in range(count):
         list_flakes.append(Snowflake())
     return list_flakes
 
@@ -74,12 +75,15 @@ while True:
     for flake in flakes:
         flake.move()
         flake.draw()
-        fallen_flakes = get_fallen_flakes()  # подчитать сколько снежинок уже упало
+        get_fallen_flakes()  # подчитать сколько снежинок уже упало
 
-    if fallen_flakes:
-        append_flakes(count=fallen_flakes)  # добавить еще сверху
+    fallen_flakes = get_fallen_flakes()
+    if len(fallen_flakes):
+        for i in get_fallen_flakes():
+            del flakes[i]
+            append_flakes(count=1)  # добавить еще сверху
 
-    sd.sleep(0.1)
+    sd.sleep(0.5)
     if sd.user_want_exit():
         break
 
