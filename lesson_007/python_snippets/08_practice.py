@@ -88,7 +88,6 @@ citizens = [
     Man(name='Кенни'),
 ]
 
-
 my_sweet_home = House()
 for citisen in citizens:
     citisen.go_to_the_house(house=my_sweet_home)
