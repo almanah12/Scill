@@ -15,7 +15,7 @@ class Snowflake:
         self.y = sd.random_number(550, 570)
         self.length = sd.random_number(30, 70)
 
-    def clear_previous_picture(self):
+    def clear_previous_picture():
         sd.clear_screen()
 
     def draw(self):
@@ -31,15 +31,15 @@ class Snowflake:
 
 flake = Snowflake()
 
-while True:
-    flake.clear_previous_picture()
-    flake.move()
-    flake.draw()
-    if not flake.can_fall():
-        break
-    sd.sleep(0.1)
-    if sd.user_want_exit():
-        break
+# while True:
+#     flake.clear_previous_picture()
+#     flake.move()
+#     flake.draw()
+#     if not flake.can_fall():
+#         break
+#     sd.sleep(0.1)
+#     if sd.user_want_exit():
+#         break
 
 # шаг 2: создать снегопад - список объектов Снежинка в отдельном списке, обработку примерно так:
 # flakes = get_flakes(count=N)  # создать список снежинок
