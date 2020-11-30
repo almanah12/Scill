@@ -48,19 +48,18 @@ def move_snowflakes():
 
 def screen_numbers_reached_down():
     global _count
+    _count = []
     for i in range(len(_point_x)):
-        if _point_y[i] < sd.random_number(40, 60):
+        if _point_y[i] < sd.random_number(80, 101):
             _count.append(i)
-    print(_count)
     return _count
 
 
+#  удалить_снежинки(номера) - удаляет снежинки с номерами из списка
 def delete_snowflakes(count):
-    for i in range(len(count)):
-        center = sd.get_point(_point_x[count[i]], _point_y[count[i]])
-        sd.start_drawing()
-        sd.snowflake(center=center, length=50, color=sd.background_color)
-        sd.finish_drawing()
-
-        del _point_x[count[i]]
-        del _point_y[count[i]]
+    center = sd.get_point(_point_x[count], _point_y[count])
+    sd.start_drawing()
+    sd.snowflake(center=center, length=50, color=sd.background_color)
+    sd.finish_drawing()
+    del _point_x[count]
+    del _point_y[count]

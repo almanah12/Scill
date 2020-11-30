@@ -54,8 +54,10 @@ def get_flakes(count):
 def get_fallen_flakes():
     global count
 
-    if flake.y <= 400:
+    if flake.y <= 50:
         count += 1
+        if flake.y >= 50:
+            count = 0
     return count
 
 
@@ -72,11 +74,10 @@ while True:
     for flake in flakes:
         flake.move()
         flake.draw()
-    for i in flakes:
         fallen_flakes = get_fallen_flakes()  # подчитать сколько снежинок уже упало
-        if fallen_flakes:
-            del flakes[i]
-            append_flakes(count=fallen_flakes)  # добавить еще сверху
+
+    if fallen_flakes:
+        append_flakes(count=fallen_flakes)  # добавить еще сверху
 
     sd.sleep(0.1)
     if sd.user_want_exit():
