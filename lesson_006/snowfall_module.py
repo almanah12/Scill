@@ -19,7 +19,6 @@ _point_y = []
 
 _count = []
 
-
 def create_snow(N):
     # глобальное переменное для доступа на всех функциях
     global _point_x, _point_y
@@ -62,6 +61,6 @@ def delete_snowflakes(count):
         sd.start_drawing()
         sd.snowflake(center=center, length=50, color=sd.background_color)
         sd.finish_drawing()
-        # удаление координат из списка
+
         del _point_x[count[i]]
         del _point_y[count[i]]
