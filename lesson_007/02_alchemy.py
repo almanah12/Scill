@@ -26,6 +26,12 @@ class Water:
     def __add__(self, other):
         if isinstance(self, Water) and isinstance(other, Air):
             return Storm()
+        elif isinstance(self, Water) and isinstance(other, Fire):
+            return Steam()
+        elif isinstance(self, Water) and isinstance(other, Earth):
+            return Dirt()
+
+    __radd__ = __add__
 
 
 class Air:
@@ -33,8 +39,12 @@ class Air:
         return 'Air'
 
     def __add__(self, other):
-        if Water() + Air():
+        if isinstance(self, Air) and isinstance(other, Water):
             return Storm()
+        elif isinstance(self, Air) and isinstance(other, Fire):
+            return Lightning()
+        elif isinstance(self, Air) and isinstance(other, Earth):
+            return Dust()
 
 
 class Fire:
@@ -42,7 +52,12 @@ class Fire:
         return 'Fire'
 
     def __add__(self, other):
-        new_object = Air()
+        if isinstance(self, Fire) and isinstance(other, Water):
+            return Steam()
+        elif isinstance(self, Fire) and isinstance(other, Air):
+            return Lightning()
+        elif isinstance(self, Fire) and isinstance(other, Earth):
+            return Lava()
 
 
 class Earth:
@@ -50,15 +65,22 @@ class Earth:
         return 'Earth'
 
     def __add__(self, other):
-        new_object = Air()
+        if isinstance(self, Earth) and isinstance(other, Water):
+            return Dirt()
+        elif isinstance(self, Earth) and isinstance(other, Fire):
+            return Lava()
+        elif isinstance(self, Earth) and isinstance(other, Air):
+            return Dust()
 
 
 class Dust:
-    pass
+    def __str__(self):
+        return 'Dust'
 
 
 class Lava:
-    pass
+    def __str__(self):
+        return 'Lava'
 
 
 class Dirt:
@@ -67,11 +89,13 @@ class Dirt:
 
 
 class Lightning:
-    pass
+    def __str__(self):
+        return 'Lightning'
 
 
 class Steam:
-    pass
+    def __str__(self):
+        return 'Steam'
 
 
 class Storm:
@@ -80,8 +104,11 @@ class Storm:
 
 
 print(Water(), '+', Air(), '=', Air() + Water())
-print(Water(), '+', Earth(), '=', Water()+Earth())
-
+print(Water(), '+', Fire(), '=', Water() + Fire())
+print(Water(), '+', Fire(), '=', Earth() + Water())
+print(Air(), '+', Fire(), '=', Air() + Fire())
+print(Air(), '+', Earth(), '=', Air() + Earth())
+print(Fire(), '+', Earth(), '=', Fire() + Earth())
 # Усложненное задание (делать по желанию)
 # Добавить еще элемент в игру.
 # Придумать что будет при сложении существующих элементов с новым.
