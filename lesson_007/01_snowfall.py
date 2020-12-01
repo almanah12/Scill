@@ -79,7 +79,7 @@ while True:
 
     fallen_flakes = get_fallen_flakes()
     if len(fallen_flakes):
-        for i in get_fallen_flakes():
+        for i in fallen_flakes:
             del flakes[i]
             append_flakes(count=1)  # добавить еще сверху
 
