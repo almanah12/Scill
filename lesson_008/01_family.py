@@ -54,14 +54,15 @@ class House:
         self.all_coat_amount = 0
 
     def __str__(self):
-        return 'In house amount of money {}, food in fridge {},amount of dirt {}'.format(
-                 self.amount_money, self.food_fridge, self.amount_dirt)
+        return 'In house amount of money {}, food in fridge {},amount of dirt {}, ' \
+               'food to cat {}'.format(
+                 self.amount_money, self.food_fridge, self.amount_dirt, self.cat_food)
 
     def act_dirt(self):
         self.amount_dirt += 5
 
     def all_result(self):
-        cprint('IN year all of money {}, total food eat {}, total bought coats {}'.format(
+        cprint('In year all of money {}, total food eat {}, total bought coats {}'.format(
             self.all_money, self.all_food_eat, self.all_coat_amount), color='cyan')
 
 
@@ -87,6 +88,7 @@ class Human:
     def pet_of_cat(self):
         self.fullness -= 10
         self.happiness += 5
+        cprint('{} pet of cat'.format(self.name), color='yellow')
         
     def act(self):
         # crisis
@@ -144,54 +146,101 @@ class Husband(Human):
 class Wife(Human):
     def act(self):
         if super().act():
-            dice = randint(1, 3)
-            if self.house.food_fridge <= 40:
+            dice = randint(1, 6)
+            # crisis
+            if self.house.food_fridge <= 60:
                 self.shopping()
             elif self.house.amount_dirt >= 110:
                 self.clean_house()
+            # cat food to buy
+            elif self.house.cat_food <= 20:
+                self.buy_food_cat()
+            # happy
             elif self.happiness <= 20:
                 self.buy_fur_coat()
                 self.house.all_coat_amount += 1
+            # lotto
             elif dice == 1:
                 self.shopping()
             elif dice == 2:
                 self.eat()
-            elif dice == 3:
+            elif dice == 3 and self.house.amount_money > 450:
+                self.buy_fur_coat()
+            else:
                 self.pet_of_cat()
 
     def shopping(self):
-        self.fullness -= 20
+        self.fullness -= 10
         self.house.food_fridge += 50
         self.house.amount_money -= 50
         cprint('{} go to shop'.format(self.name), color='yellow')
 
+    def buy_food_cat(self):
+        self.house.cat_food += 50
+        self.house.amount_money -= 50
+        self.fullness -= 10
+        cprint('{} bought food to cat'.format(self.name), color='yellow')
+
     def buy_fur_coat(self):
-        self.fullness -= 20
+        self.fullness -= 10
         self.happiness += 60
         self.house.amount_money -= 350
         cprint('{} bought a coat'.format(self.name), color='yellow')
 
     def clean_house(self):
-        self.fullness -= 20
+        self.fullness -= 10
         self.house.amount_dirt -= 100
         cprint('{} cleaned the house'.format(self.name), color='yellow')
+#
+# После реализации первой части надо в ветке мастер продолжить работу над семьей - добавить ребенка
+#
+# Ребенок может:
+#   есть,
+#   спать,
+#
+# отличия от взрослых - кушает максимум 10 единиц еды,
+# степень счастья  - не меняется, всегда ==100 ;)
 
 
-# Степень сытости не должна падать ниже 0, иначе кот умрет от голода.
+class Child(Human):
+    def act(self):
+        if self.fullness <= 10:
+            self.eat()
+        dice = randint(1, 2)
+        if dice == 1:
+            self.eat()
+        else:
+            self.sleep()
+
+    def eat(self):
+        self.house.food_fridge -= 10
+        self.fullness += 10
+        cprint('{} eat'.format(self.name), color='yellow')
+
+    def sleep(self):
+        self.fullness -= 10
+        cprint('{} sleep'.format(self.name), color='yellow')
+
 
 class Cat:
+    """Cat"""
 
     def __init__(self, name, house):
         self.name = name
         self.fullness = 30
         self.house = house
 
+    def __str__(self):
+        return 'Cat {} fullness {}'.format(self.name, self.fullness)
+
     def act(self):
         if self.fullness <= 0:
-            cprint('Cat {} dead of hunger'.format(self.name))
+            cprint('Cat {} dead of hunger'.format(self.name), color='red')
             return
         dice = randint(1, 3)
-        if dice == 1:
+        if self.fullness <= 10:
+            self.eat()
+        elif dice == 1:
             self.eat()
         elif dice == 2:
             self.sleep()
@@ -200,7 +249,7 @@ class Cat:
 
     def eat(self):
         self.house.cat_food -= 10
-        self.fullness += 20
+        self.fullness += 10
         cprint('Cat {} eat'.format(self.name), color='grey')
 
     def sleep(self):
@@ -214,30 +263,39 @@ class Cat:
 
 
 home = House()
-serge = Husband(name='Mike')
-masha = Wife(name='Sara')
+mike = Husband(name='Mike')
+sara = Wife(name='Sara')
+nick = Child(name='Nick')
 black = Cat(name='Black', house=home)
-serge.in_house(home)
-masha.in_house(home)
+mike.in_house(home)
+sara.in_house(home)
+nick.in_house(home)
+
 
 for day in range(365):
     if day != 364:
         cprint('================== День {} =================='.format(day), color='red')
-        serge.act()
-        masha.act()
+        mike.act()
+        sara.act()
+        nick.act()
         black.act()
         home.act_dirt()
-        cprint(serge, color='cyan')
-        cprint(masha, color='cyan')
+        cprint(mike, color='cyan')
+        cprint(sara, color='cyan')
+        cprint(nick, color='cyan')
+        cprint(black, color='cyan')
         cprint(home, color='cyan')
     else:
         cprint('================== День {} =================='.format(day), color='red')
-        serge.act()
-        masha.act()
+        mike.act()
+        sara.act()
+        nick.act()
         black.act()
         home.act_dirt()
-        cprint(serge, color='cyan')
-        cprint(masha, color='cyan')
+        cprint(mike, color='cyan')
+        cprint(sara, color='cyan')
+        cprint(nick, color='cyan')
+        cprint(black, color='cyan')
         cprint(home, color='cyan')
         cprint(home.all_result(), color='cyan')
 
@@ -281,23 +339,6 @@ for day in range(365):
 #
 # отличия от взрослых - кушает максимум 10 единиц еды,
 # степень счастья  - не меняется, всегда ==100 ;)
-
-class Child:
-
-    def __init__(self):
-        pass
-
-    def __str__(self):
-        return super().__str__()
-
-    def act(self):
-        pass
-
-    def eat(self):
-        pass
-
-    def sleep(self):
-        pass
 
 
 # TODO после реализации второй части - отдать на проверку учителем две ветки
