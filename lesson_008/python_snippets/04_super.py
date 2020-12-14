@@ -47,13 +47,16 @@ r2d2.operate()
 
 
 class SubmarineRobot(WarRobot):
+    def __init__(self, model, gun, deep):
+        super().__init__(model=model, gun=gun)
+        self.deep = deep
 
     def operate(self):
         super().operate()
-        print('Охрана ведется под водой')
+        print('Охрана ведется под водой на глубине', self.deep, 'm')
 
 
-rc_submarine = WarRobot(model='Orbiter', gun='лазер')
+rc_submarine = SubmarineRobot(model='Orbiter', gun='лазер', deep=155500)
 print(rc_submarine)
 rc_submarine.operate()
 
